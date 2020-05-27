@@ -1,10 +1,5 @@
 #!/usr/bin/perl -w
-use lib "$ENV{'HOME'}/perl"; 
-use yo qw(:DEFAULT); 
-use Data::Dumper;     # Hint: print Dumper(\@cosa); 
 use strict;
-
-# parados en: /free/databases/ncbi_bacteria/ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria lee el archivo assembly_summary.paths de cada bacteria y saca cual es el ftp del mejor (el mas reciente y en el orden genome,contigs,scaffolds,chromosomes) repositorio donde estara el genoma
 
 my (%lines, %HQ_genome);
 my $file_to_open= shift; # assembly_summary.paths
@@ -24,7 +19,6 @@ while(<IN>){
         if( /^.*\s+strain=([^\t]+)\s+latest.*\s+(\d+)\/\d{2}\/\d{2}/ ){
             my ($strain, $year)= ($1, $2);
             ($strain= $strain)=~s/ /_/g;
-#             print STDERR "$org\t$strain\t$year\n";
             if( /^.*\s+latest/ && /^.*\s+Genome/ && /^.*\s+(ftp\S+)/ ){
                 $lines{$year}{$strain}{genome}= $1;
             }elsif( /^.*\s+latest/ && /^.*\s+Chromosome/ && /^.*\s+(ftp\S+)/ ){
@@ -35,19 +29,16 @@ while(<IN>){
                 $lines{$year}{$strain}{contig}= $1;                
             }
             if( /^.*\s+reference genome\s+.*/ && /^.*\s+(ftp\S+)/ ){
-#                 print STDERR "reference\n";
                 $HQ_genome{$strain}{reference}= $1;
                 $HQ_genome{$strain}{year}= $year;
             }
             if( /^.*\s+representative genome\s+.*/ && /^.*\s+(ftp\S+)/ ){
-#                 print STDERR "representative\n";
                 $HQ_genome{$strain}{representative}= $1;
                 $HQ_genome{$strain}{year}= $year;
             }
             
         }elsif(  /^.*\s+([^\t]+)\s+latest.*\s+(\d+)\/\d{2}\/\d{2}/ ){ # solo por unos pocos (287 de 13208) que no tienen la nomenclatura "strain=" solo tienen el nombre del strain. ver: lista_sin_strain.txt
             my ($strain, $year)= ($1, $2);
-#             print STDERR "$strain\t$year\n";
             if( /^.*\s+latest/ && /^.*\s+Genome/ && /^.*\s+(ftp\S+)/ ){
                 $lines{$year}{$strain}{genome}= $1;
             }elsif( /^.*\s+latest/ && /^.*\s+Chromosome/ && /^.*\s+(ftp\S+)/ ){
@@ -58,12 +49,10 @@ while(<IN>){
                 $lines{$year}{$strain}{contig}= $1;                
             }
             if( /^.*\s+reference genome\s+.*/ && /^.*\s+(ftp\S+)/ ){
-#                 print STDERR "reference\n";
                 $HQ_genome{$strain}{reference}= $1;
                 $HQ_genome{$strain}{year}= $year;
             }
             if( /^.*\s+representative genome\s+.*/ && /^.*\s+(ftp\S+)/ ){
-#                 print STDERR "representative\n";
                 $HQ_genome{$strain}{representative}= $1;
                 $HQ_genome{$strain}{year}= $year;
             }
@@ -111,13 +100,3 @@ while(<IN>){
       }
     
 }
-
-
-__END__
-assembly_summary.paths:
-
-./Desulfosarcina_sp._BuS5/assembly_summary.txt
-./Leisingera_sp._ANG-M7/assembly_summary.txt
-./Lactobacillus_homohiochii/assembly_summary.txt
-./Jejuia_pallidilutea/assembly_summary.txt
-

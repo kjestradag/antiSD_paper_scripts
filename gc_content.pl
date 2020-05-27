@@ -1,7 +1,4 @@
 #!/usr/bin/perl -w
-use lib "$ENV{'HOME'}/perl"; 
-use yo qw(:DEFAULT); 
-use Data::Dumper;     # Hint: print Dumper(\@cosa); 
 use strict;
 
 my ($cnt, $all);

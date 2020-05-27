@@ -25,5 +25,4 @@ foreach my $key ( sort keys %link ){
     chdir '..';
     #~ exit
 }
-#~ exit;
 
