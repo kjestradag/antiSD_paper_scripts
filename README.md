@@ -1,5 +1,5 @@
 
-# Perl scripts used for paper: In silico identification of regulation elements of translation in prokaryote
+# Perl scripts used for paper: Shine-Dalgarno/Anti-Shine-Dalgarno sequence interactions: Specific sequence and position variations between phylogenetic classes.
 
     Karel Estrada, Alejandro Garciarrubio & Enrique Merino
 
