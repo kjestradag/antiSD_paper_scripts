@@ -61,10 +61,3 @@ Bacteria_Proteobacteria_Gammaproteobacteria  13   10.036379  8.066751   0.011858
 Bacteria_Proteobacteria_Gammaproteobacteria  14   5.051426   0          0.002254  0          5.049172   5.047001   0          0.004425  0
 Bacteria_Proteobacteria_Gammaproteobacteria  15   3.647524   0          2.953089  0          0.694435   0          0          3.647524  0
 
-
-
-redefinir el core: CCUCCUU
-
-aplicar este script a txts de los orgs individuales para ver casos extremos como las acidolobus
-
-claramente hay patrones de aSD conservados en muchas clases
