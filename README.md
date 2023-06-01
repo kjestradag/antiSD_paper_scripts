@@ -1,6 +1,6 @@
 
 # Perl scripts 
-These are some of the main scripts used in the study presented in scientific paper: **Shine-Dalgarno/Anti-Shine-Dalgarno sequence interactions: Specific sequence and position variations between phylogenetic classes**
+These are some of the main scripts used in the study presented in scientific paper: **Unraveling the Plasticity of Translation Initiation in Prokaryotes: Beyond the Invariant Shine-Dalgarno Sequence**
 
 ## Authors:
     Karel Estrada, Alejandro Garciarrubio & Enrique Merino
